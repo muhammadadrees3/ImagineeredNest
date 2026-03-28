@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import VideoModal from './VideoModal';
 import { useTheme } from '@/context/ThemeContext';
 import { Code, Compass, Palette, Search, LineChart, Phone, Play } from 'lucide-react';
@@ -27,6 +27,14 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
   const openWhatsApp = () => {
     window.open('https://wa.me/923480550152?text=Hello%2C%20I%27m%20interested%20in%20your%20services.', '_blank');
   };
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && videoRef.current.readyState >= 3) {
+      setIsVideoLoaded(true);
+    }
+  }, []);
+
   const scrollToSection = () => {
   const element = document.getElementById('contact-form');
   if (element) {
@@ -38,12 +46,13 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
 };
 
   return (
-    <section className="pt-20 relative px-5 md:px-10 flex flex-col-reverse md:flex-row items-center justify-between gap-12 min-h-[90vh] w-full  py-10 md:py-20 overflow-hidden">
+    <section className="pt-20 relative px-5  md:px-10 flex flex-col md:flex-row items-center justify-between gap-12  w-full  py-10 md:py-20 overflow-hidden">
       {/* Background Decorative Element */}
+
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[120px] -z-10 rounded-full"></div>
       
       <div className="flex-1 z-10 w-full" data-aos="fade-right">
-        <h1 className={`text-[36px] sm:text-[42px] md:text-6xl ${theme === 'light' ? 'dark:text-slate-900 ' : 'text-white'} lg:text-7xl font-bold leading-[1.1] tracking-tight text-foreground`}>
+        <h1 className="main-heading">
           {title1} <br />
           <span className="text-primary relative inline-block">
             {title2}
@@ -52,35 +61,22 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
             </svg>
           </span>
         </h1>
-        <div className="text-lg md:text-xl my-8 text-foreground/70 max-w-xl leading-relaxed">
+        <div className="header-description">
           {subtitle}
           <br />
-          {/* {pathname === "/" && (
-            <div className="flex flex-wrap gap-3 mt-6">
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-primary/20 transition-all cursor-default shadow-sm hover:scale-105">
-              <Code className="w-4 h-4 text-primary" /> Development
-            </span>
-           
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-primary/20 transition-all cursor-default shadow-sm hover:scale-105">
-              <Palette className="w-4 h-4 text-primary" /> Designing
-            </span>
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-primary/20 transition-all cursor-default shadow-sm hover:scale-105">
-              <LineChart className="w-4 h-4 text-primary" /> Social Media Marketing
-            </span>
-          </div>
-          )} */}
+         
         </div>
         <div className="flex flex-wrap gap-4">
           <button 
             onClick={openWhatsApp} 
-            className="group bg-primary text-white px-5 md:px-10 py-3 md:py-4 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2"
+            className="group bg-blue-900 text-white px-5 md:px-10 py-3 md:py-4 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2"
             aria-label="Contact us on WhatsApp"
           >
             <Phone className="w-5 h-5" />
             WhatsApp
           </button>
-          <Link href={"/contact/"}  onClick={scrollToSection} className="px-5 md:px-10 py-3 md:py-4 rounded-full font-bold border-2 border-primary text-primary hover:bg-primary/5 hover:-translate-y-1 transition-all flex items-center">
-            Book a Call
+          <Link href={"/contact/"}  onClick={scrollToSection} className="px-5 md:px-10 py-3 md:py-4 rounded-full font-bold border-2 border-blue-900 text-blue-900 hover:bg-primary/5 hover:-translate-y-1 transition-all flex items-center">
+            Contact Us
           </Link>
         </div>
        
@@ -88,26 +84,23 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
       <div className="flex-1 relative z-10" data-aos="fade-left">
         {pathname === "/" ? (
         <div className="relative rounded-3xl overflow-hidden shadow-custom border border-border group cursor-pointer aspect-video md:aspect-auto" onClick={() => setModalOpen(true)}>
-          {!isVideoLoaded && (
-            <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse z-20 flex items-center justify-center">
-               <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          )}
+         
           <video 
+            key={video || "/images/video.mp4"}
+            ref={videoRef}
             autoPlay 
             loop 
             muted 
             playsInline 
             preload="auto" 
             onLoadedData={() => setIsVideoLoaded(true)}
-            poster="https://res.cloudinary.com/dqjp2xwje/video/upload/v1774337489/company-website/images/video.jpg" 
-            className={`w-full h-full object-cover transition-opacity duration-700 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`w-full h-fit md:h-[500px] object-cover transition-opacity duration-700 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
           >
-            <source src="https://res.cloudinary.com/dqjp2xwje/video/upload/v1774337489/company-website/images/video.mp4" type="video/mp4" />
+            <source src={video || "/images/video.mp4"} type="video/mp4" />
           </video>
         </div>
           ): (
-            <div className="relative overflow-hidden rounded-2xl w-full h-[400px]">
+            <div className="relative overflow-hidden rounded-2xl w-full md:h-[400px]">
               {!isImageLoaded && (
                 <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse z-20"></div>
               )}
@@ -123,7 +116,7 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
           )}
       </div>
       {pathname !== "/" && (
-      <VideoModal isOpen={modalOpen} onClose={() => setModalOpen(false)} videoSrc="https://res.cloudinary.com/dqjp2xwje/video/upload/v1774337489/company-website/images/video.mp4" />
+      <VideoModal isOpen={modalOpen} onClose={() => setModalOpen(false)} videoSrc={video || "/images/video.mp4"} />
       )}
     </section>
   );

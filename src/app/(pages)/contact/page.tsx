@@ -98,32 +98,11 @@ export default function ContactPage() {
       <main className="pt-20">
 
         {/* ── Hero ── */}
-        {/* <section className="relative py-28 px-5 overflow-hidden text-center">
-          <div className="absolute inset-0 -z-10 pointer-events-none">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
-          </div>
-
-          <div className="container mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-8">
-              <Mail className="w-3.5 h-3.5" />
-              Get in Touch
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-none mb-6 bg-linear-to-r from-blue-600 via-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-200 bg-clip-text text-transparent">
-              Let's Build<br />Something Great
-            </h1>
-
-            <p className="text-lg text-muted max-w-xl mx-auto leading-relaxed">
-              Have a project in mind or just want to say hello? We'd love to hear from you. Drop us a message and we'll get back to you within 24 hours.
-            </p>
-          </div>
-        </section> */}
         <Hero title1="Let's Build" title2='Something Great' subtitle="Have a project in mind or just want to say hello? We'd love to hear from you. Drop us a message and we'll get back to you within 24 hours." 
         image='https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335819/company-website/ipfhbpibns3wtmnmlll5.png' 
         imageHeight={400} imageWidth={700} />
         {/* ── Main Grid ── */}
-        <section id="contact-form" className="py-16 px-5 pb-24">
+        <section id="contact-form" className=" px-5 pb-24">
           <div className="container mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
             {/* ── Form Column ── */}
@@ -273,12 +252,7 @@ export default function ContactPage() {
 
               {/* Map */}
               <div className="relative rounded-2xl overflow-hidden mb-6 border border-border shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343003!2d-73.98510768458417!3d40.75889797932616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
-                  loading="lazy"
-                  title="Office Location"
-                  className="w-full h-[280px] border-0 block"
-                />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.033635372349!2d73.1116994069956!3d33.63036986696908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfeb0008f8447b%3A0x931d2b5805e2699a!2sImagineeredNest%20Graphic%20Designer!5e0!3m2!1sen!2s!4v1774719072801!5m2!1sen!2s" width="100%" height="390" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
                 {/* Overlay badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-2 bg-card border border-border shadow-md px-3 py-1.5 rounded-lg text-xs font-semibold text-foreground">
                   <MapPin className="w-3.5 h-3.5 text-blue-500" />

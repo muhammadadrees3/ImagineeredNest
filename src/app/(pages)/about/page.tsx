@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import Owners from '@/app/components/Owners';
 import Link from 'next/link';
-import { ArrowRight, Zap, Target, Eye, Code, Users, Lightbulb, Sparkles, Rocket, ChevronDown } from 'lucide-react';
+import { ArrowRight, Zap, Target, Eye, Code, Users, Lightbulb, Sparkles, Rocket, ChevronDown, Smile, RefreshCw, Headset, Wallet } from 'lucide-react';
 import Counter from '@/app/components/Counter';
 import Loading from '../loading';
 import Image from 'next/image';
@@ -16,6 +16,54 @@ export default function About() {
   }, []);
 
   return (
+    <>
+    
+    <AboutUS/>
+    {/* --- VALUES GRID --- */}
+        <section className="py-10 px-1  md:px-5 bg-secondary/20">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-black mb-4">Our Core Principles</h2>
+              <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full" />
+            </div>
+            <div className="grid grid-cols-2  lg:grid-cols-4 gap-16">
+              {[
+                {
+                  title: 'New Ideas',
+                  icon: Lightbulb,
+                  color: 'text-blue-500',
+                  desc: 'We use modern technology and creative thinking to build smart solutions for the future.'
+                },
+                {
+                  title: 'Accuracy',
+                  icon: Target,
+                  color: 'text-purple-500',
+                  desc: 'We focus on clean code, strong architecture, and well designed interfaces in every project.'
+                },
+                {
+                  title: 'Honesty',
+                  icon: Users,
+                  color: 'text-pink-500',
+                  desc: 'We build trust through clear communication, transparency, and ethical work.'
+                },
+                {
+                  title: 'Productivity',
+                  icon: Code,
+                  color: 'text-emerald-500',
+                  desc: 'We create fast, scalable software that runs smoothly and supports business growth.'
+                },
+              ].map((val, i) => (
+                <div key={i} className="flex flex-col items-center group text-center" data-aos="fade-up" data-aos-delay={i * 100}>
+                  <div className={`mb-8 p-6 rounded-3xl bg-background border border-border shadow-xl group-hover:-translate-y-3 transition-all duration-500 ${val.color}`}>
+                    <val.icon className="w-10 h-10" />
+                  </div>
+                  <h3 className="text-xl  font-black mb-3">{val.title}</h3>
+                  <p className="text-sm md:flex hidden text-muted-foreground leading-relaxed">{val.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
     <div className="min-h-screen mt-10 w-full overflow-hidden bg-background text-foreground selection:bg-blue-500/30">
       <style>{`
         .text-gradient {
@@ -39,9 +87,13 @@ export default function About() {
         .animate-float { animation: float 6s ease-in-out infinite; }
       `}</style>
 
-      <main className="relative">
         {/* --- NEW HERO SECTION: DUAL IMAGE BOX LAYOUT --- */}
-        <section className="relative pt-32 pb-20 px-5">
+     {/* --- STATS BAR --- */}
+        <div className="py-12 border-y border-border bg-card/30 backdrop-blur-sm">
+          <Counter />
+        </div>
+        
+        <section className="relative  pt-10 pb-20 px-5">
           <div className="container mx-auto max-w-7xl">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
 
@@ -121,112 +173,80 @@ export default function About() {
           </div>
         </section>
 
-        {/* --- STATS BAR --- */}
-        <div className="py-12 border-y border-border bg-card/30 backdrop-blur-sm">
-          <Counter />
-        </div>
+       
 
-        {/* --- BENTO JOURNEY SECTION --- */}
-        <section id="journey" className="py-24 px-5">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <div className="lg:col-span-8 p-12 rounded-[2.5rem] bg-slate-900 border border-border relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-                <h2 className="text-4xl text-white font-bold mb-8">From a Vision to a Global Nest</h2>
-                <div className="space-y-6 text-white text-lg leading-relaxed">
-                  <p>
-                    Imagineerednest was born from a simple question: <span className="text-primary font-bold underline decoration-blue-500/30 underline-offset-4">"Why choose between beauty and performance?"</span>
-                  </p>
-                  <p>
-                    Started by two brothers with a passion for code and design, we've transformed into a specialized software house that treats every line of code like a piece of art.
-                  </p>
-                </div>
-              </div>
-
-              <div className="lg:col-span-4 rounded-[2.5rem] overflow-hidden border border-border shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover transition-all duration-700"
-                  alt="Tech workspace"
-                />
-              </div>
-
-              <div className="lg:col-span-6 md:p-10 rounded-[2.5rem] glass-card hover:border-blue-500/50 transition-colors duration-500">
-                <div className="flex items-center gap-5 mb-6">
-                  <div className="p-4 bg-blue-600 rounded-2xl text-white shadow-lg shadow-blue-500/20"><Zap /></div>
-                  <h3 className="text-3xl font-bold">The Mission</h3>
-                </div>
-                <p className="text-muted-foreground text-lg">
-                  To help businesses grow by providing digital tools that solve real problems and create measurable success through precision engineering.
-                </p>
-              </div>
-
-              <div className="lg:col-span-6 md:p-10 rounded-[2.5rem] glass-card hover:border-purple-500/50 transition-colors duration-500">
-                <div className="flex items-center gap-5 mb-6">
-                  <div className="p-4 bg-purple-600 rounded-2xl text-white shadow-lg shadow-purple-500/20"><Eye /></div>
-                  <h3 className="text-3xl font-bold">The Vision</h3>
-                </div>
-                <p className="text-muted-foreground text-lg">To become the global gold standard where every complex "imagination" finds its perfect, high performance technical "nest".</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- VALUES GRID --- */}
-        <section className="py-24 px-1  md:px-5 bg-secondary/20">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-20">
-              <h2 className="text-5xl font-black mb-4">Our Core Principles</h2>
-              <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
-              {[
-                {
-                  title: 'New Ideas',
-                  icon: Lightbulb,
-                  color: 'text-blue-500',
-                  desc: 'We use modern technology and creative thinking to build smart solutions for the future.'
-                },
-                {
-                  title: 'Accuracy',
-                  icon: Target,
-                  color: 'text-purple-500',
-                  desc: 'We focus on clean code, strong architecture, and well designed interfaces in every project.'
-                },
-                {
-                  title: 'Honesty',
-                  icon: Users,
-                  color: 'text-pink-500',
-                  desc: 'We build trust through clear communication, transparency, and ethical work.'
-                },
-                {
-                  title: 'Speed & Efficiency',
-                  icon: Code,
-                  color: 'text-emerald-500',
-                  desc: 'We create fast, scalable software that runs smoothly and supports business growth.'
-                },
-              ].map((val, i) => (
-                <div key={i} className="flex flex-col items-center group text-center" data-aos="fade-up" data-aos-delay={i * 100}>
-                  <div className={`mb-8 p-6 rounded-3xl bg-background border border-border shadow-xl group-hover:-translate-y-3 transition-all duration-500 ${val.color}`}>
-                    <val.icon className="w-10 h-10" />
-                  </div>
-                  <h3 className="text-xl font-black mb-3">{val.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{val.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* --- FOUNDERS SECTION --- */}
-        {/* <div id="founders" className="scroll-mt-20 py-10">
-          <Owners />
-        </div> */}
+    
+        
 
 
-      </main>
+
+     
     </div>
+    </>
   );
 }
+
+
+
+
+
+
+
+const features = [
+  { icon: Smile, title: '100% Client Satisfaction', desc: 'Unlimited revisions until you are completely satisfied.' },
+  { icon: RefreshCw, title: 'Agile Development Process', desc: 'Streamlined work, timely updates, clear communication.' },
+  { icon: Headset, title: 'Post-Launch Support', desc: 'Dedicated maintenance and support for continued performance.' },
+  { icon: Wallet, title: 'Competitive Pricing', desc: 'Enterprise‑level quality at startup‑friendly rates.' },
+];
+
+const AboutUS = () => {
+  
+  return (
+    <section className="py-0 md:py-20 px-5 relative  mt-20 md:mt-5 md:bg-muted/5">
+
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center pt-10 md:pt-0">
+        
+        {/* LEFT SIDE */}
+        <div>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+            About Us
+          </h2>
+
+          <p className="mt-6 text-lg text-foreground/70 leading-relaxed text-justify">
+            We are a team of passionate developers and designers who love building innovative software solutions. Started by two brothers with a passion for code and design, we've transformed into a specialized software house that treats every line of code like a piece of art.
+          </p>
+
+          <p className="mt-4 text-foreground/70 text-justify">
+            We help businesses grow by providing digital tools that solve real problems and create measurable success through precision engineering.
+          </p>
+
+          {/* SERVICES LIST */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {features.map((item, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <item.icon className="text-primary w-5 h-5" />
+                <span className="text-foreground font-medium">
+                  {item.title}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT SIDE IMAGE */}
+        <div className="relative w-full h-[250px] md:h-[500px] bg-blue-900 rounded-2xl">
+          <Image
+            src="/images/whitelogo.png" // 👉 put your image in public/images
+            alt="Why Choose Us"
+            fill
+            className="object-contain w-full h-full rounded-3xl shadow-lg"
+          />
+        </div>
+
+      </div>
+
+    </section>
+
+  );
+};
+

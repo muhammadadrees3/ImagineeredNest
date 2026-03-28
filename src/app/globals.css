@@ -230,3 +230,14 @@ button, a, input, select, textarea, [class*="hover:"], .transition-all {
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
+
+
+
+.main-heading{
+  @apply text-[36px] sm:text-[42px] md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-foreground ;
+}
+
+.header-description{
+  @apply text-sm text-justify  md:text-lg my-8 text-foreground/70 max-w-xl leading-relaxed;
+}
+

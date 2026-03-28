@@ -1,8 +1,8 @@
 'use client';
 
 import { MapPin, Globe, Zap, Search, Layout, Smartphone } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
-import ImageWithLoader from '@/app/components/ImageWithLoader';
 
 export default function GoogleMapsPage() {
   return (
@@ -28,11 +28,11 @@ export default function GoogleMapsPage() {
               </Link>
             </div>
             <div className="flex-1 w-full max-w-2xl text-justify">
-                <ImageWithLoader 
+                <Image 
                   src="https://placehold.co/800x600/2563eb/white?text=Google+Maps+Listing+Results" 
-                  alt="Google Maps" 
-                  usePlainImg={true}
-                  containerClassName="rounded-2xl shadow-2xl border border-border overflow-hidden"
+                  alt="Google Maps"
+                  width={400}
+                  height={500}
                   className="w-full h-full object-cover" 
                 />
             </div>

@@ -20,7 +20,7 @@ const DEFAULT_STEPS: Step[] = [
   {
     icon: PencilRuler,
     title: 'Craft the Design',
-    desc: 'Our designers build intuitive and engaging interfaces that users love.'
+    desc: 'Our designers build intuitive and engaging UI/UX that users love.'
   },
   {
     icon: Code,
@@ -35,7 +35,7 @@ function How_To_Work({ steps }: { steps?: Step[] }) {
   return (
     <>
       {/* --- How We Work Section --- */}
-      <section className="py-24 bg-card/30 border-y border-border">
+      <section className="py-10 md:py-24 bg-card/30 border-y border-border">
         <div className="container mx-auto px-5 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">How We Work</h2>

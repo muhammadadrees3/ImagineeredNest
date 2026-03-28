@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
-import ImageWithLoader from './ImageWithLoader';
 
 const owners = [
   {
@@ -55,7 +54,7 @@ const Owners = () => {
                 <div className="relative inline-block mb-8">
                   <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-500 scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                   <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full border-4 border-blue-600 shadow-xl overflow-hidden group-hover:scale-110 transition-transform duration-500">
-                    <ImageWithLoader 
+                    <Image
                       src={owner.img} 
                       alt={owner.name} 
                       fill
@@ -96,7 +95,7 @@ const Owners = () => {
               <div className="flex flex-col sm:flex-row items-start gap-8 mb-8 pb-8 border-b border-border">
                 <div className="shrink-0 mx-auto sm:mx-0">
                   <div className="relative w-28 h-28 sm:w-32 sm:h-32">
-                    <ImageWithLoader
+                    <Image
                       src={selectedOwner.img}
                       alt={selectedOwner.name}
                       fill

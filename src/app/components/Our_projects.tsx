@@ -149,7 +149,7 @@ export default function Our_projects({
         @keyframes shimmer { to { transform: translateX(300%); } }
       `}</style>
 
-      <section className="py-24">
+      <section className=" py-5 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
 
           {/* Headline */}
@@ -158,7 +158,7 @@ export default function Our_projects({
               <Layers className="w-3.5 h-3.5" /> Portfolio
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-5">Our Projects</h2>
-            <p className="text-muted-foreground text-base leading-relaxed">
+            <p className="text-muted-foreground w-full md:text-nowrap text-base leading-relaxed">
               A showcase of our work across digital strategy, product engineering, and design systems.
             </p>
           </div>

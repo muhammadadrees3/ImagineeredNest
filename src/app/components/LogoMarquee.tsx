@@ -19,16 +19,11 @@ const LogoMarquee = () => {
     const track = trackRef.current;
     if (!track) return;
 
-    // Clone logos to create seamless infinite loop
-    const originalChildren = Array.from(track.children);
-    originalChildren.forEach(child => {
-      const clone = child.cloneNode(true);
-      track.appendChild(clone);
-    });
-
     // Calculate animation duration based on content width
-    const trackWidth = track.scrollWidth / 2;
-    const duration = Math.max(15, Math.round(trackWidth / 60));
+    // We scroll by half of the total width (which contains multiple sets of logos)
+    const totalWidth = track.scrollWidth;
+    const trackWidth = totalWidth / 2;
+    const duration = Math.max(20, Math.round(trackWidth / 50));
 
     // Apply values via CSS variables
     track.style.setProperty('--marquee-duration', `${duration}s`);
@@ -36,13 +31,13 @@ const LogoMarquee = () => {
   }, []);
 
   return (
-    <section className="relative w-full mt-20 overflow-hidden bg-slate-50 dark:bg-slate-950 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <section className="relative w-full overflow-hidden bg-slate-50 dark:bg-slate-950 pt-10 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-blue-500 to-transparent opacity-50 dark:opacity-100" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center -mb-3">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3 transition-colors duration-300">
             Trusted by Industry Leaders
           </h2>
@@ -65,12 +60,12 @@ const LogoMarquee = () => {
           {/* Track */}
           <div
             ref={trackRef}
-            className="marquee-track flex gap-8 sm:gap-12 lg:gap-16 items-center py-8 px-4 hover:[animation-play-state:paused]"
+            className="marquee-track flex gap-8 sm:gap-12 lg:gap-16 items-center -py-2 pt-6 px-4 hover:[animation-play-state:paused]"
           >
-            {logos.map((src, idx) => (
+            {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map((src, idx) => (
               <div
                 key={idx}
-                className="shrink-0 relative w-32 sm:w-40 h-16 sm:h-20 flex items-center justify-center grayscale opacity-60 dark:opacity-70 transition-all duration-300 ease-out group-hover/marquee:opacity-30 hover:grayscale-0! hover:opacity-100! hover:scale-110 cursor-pointer"
+                className="shrink-0 relative w-32 sm:w-40 h-16 sm:h-20 flex items-center justify-center  dark:opacity-70 transition-all duration-300 ease-out cursor-pointer"
               >
                 <Image
                   src={src}

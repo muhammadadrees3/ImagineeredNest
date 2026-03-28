@@ -51,7 +51,7 @@ const Navbar = () => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Check if we've scrolled down a bit to make navbar "small"
       setIsScrolled(currentScrollY > 40);
 
@@ -61,7 +61,7 @@ const Navbar = () => {
       } else {
         setIsVisible(true);
       }
-      
+
       lastScrollY = currentScrollY;
     };
 
@@ -70,36 +70,37 @@ const Navbar = () => {
   }, [mobileMenuOpen, servicesDropdownOpen]);
 
   return (
-    <nav className={`fixed w-full top-0  left-0 z-50 flex  justify-between items-center transition-all duration-500 ease-in-out px-5 md:px-10 border-b overflow-visible ${
-      isVisible ? 'translate-y-0 ' : '-translate-y-[120%] '
-    } ${
-      isScrolled 
-        ? `h-16 shadow-md border-border backdrop-blur-xl ${theme === 'dark' ? 'bg-black/95' : 'bg-white/95'}` 
-        : `h-20 border-transparent backdrop-blur-md ${theme === 'dark' ? 'bg-black/60' : 'bg-white/60'}`
-    }`}>
+    <nav className={`fixed bg-blue-900 w-full  top-0  left-0 z-50 flex  justify-between items-center transition-all duration-500 ease-in-out px-5 md:px-10 border-b overflow-visible ${isVisible ? 'translate-y-0 ' : '-translate-y-[120%] '
+      } ${isScrolled
+        ? `h-16 shadow-md border-border backdrop-blur-xl`
+        : `h-20 border-transparent backdrop-blur-md  `
+      }`}>
       <Link href="/" className="flex items-center gap-2 group">
-        <div className={`relative bg-slate-900 rounded-xl transition-all duration-300 ${isScrolled ? 'h-10 w-10' : 'h-12 w-12 md:h-14 md:w-14'}`}>
-          <Image 
-            src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335822/company-website/r97k4rmx2byq4tqrrshs.png" 
-            alt="Imagineerednest" 
-            width={500}
-            height={500}
-            className="object-contain drop-shadow-sm group-hover:scale-105 transition duration-300 w-full h-full"
-            
+        <div className={`relative rounded-xl transition-all duration-300 flex ${isScrolled ? 'h-10 w-10' : 'h-12 w-12 md:h-14 md:w-14'}`}>
+          <Image
+            src="/images/whitelogo.png"
+            alt="ImagineeredNest"
+            width={700}
+            height={700}
+            className="object-contain drop-shadow-sm scale-125 transition duration-300 "
+
           />
         </div>
+        <span className="text-xl ml-2 font-bold text-white">ImagineeredNest</span>
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center gap-8 bg-black/90 p-3 rounded-xl">
-        <Link href="/" className={`font-medium transition ${pathname === '/' ? 'text-primary' : 'text-white hover:text-primary'}`}>Home</Link>
-        <Link href="/about" className={`font-medium transition ${pathname === '/about' ? 'text-primary' : 'text-white hover:text-primary'}`}>About Us</Link>
+      <div className="hidden md:flex items-center gap-8 p-3 rounded-xl">
+        
+        <Link href="/" className={`font-medium transition ${pathname === '/' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white hover:text-primary'}`}>Home</Link>
+        <Link href="/about" className={`font-medium transition ${pathname === '/about' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white hover:text-primary'}`}>About Us</Link>
+        <Link href="/contact" className={`font-medium transition ${pathname === '/contact' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Contact Us</Link>
 
         {/* Services Dropdown */}
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-            className={`flex items-center cursor-pointer gap-1 font-medium transition ${pathname.startsWith('/services') ? 'text-primary' : 'text-white/90 hover:text-primary'}`}
+            className={`flex items-center cursor-pointer gap-1 font-medium transition ${pathname.startsWith('/services') ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}
           >
             Services
             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
@@ -107,10 +108,10 @@ const Navbar = () => {
           {servicesDropdownOpen && (
             <div className="absolute top-[calc(100%+1.6rem)] -left-[170px] -translate-x-1/2 bg-card rounded-bl-2xl shadow-2xl border border-border w-[1000px] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="grid grid-cols-12">
-                
+
                 {/* Links Section */}
                 <div className="col-span-8 p-8 grid grid-cols-2 gap-x-8 gap-y-10">
-                  
+
                   {/* Development */}
                   <div>
                     <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">Development</h4>
@@ -121,11 +122,10 @@ const Navbar = () => {
                         { label: 'Desktop Apps', href: '/services/desktop-development', Icon: Monitor },
                       ].map(({ label, href, Icon }) => (
                         <Link key={label} href={href} className="group flex items-center gap-4 transition-all">
-                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${
-                            pathname === href 
-                              ? 'bg-primary/10 border-primary/40' 
+                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${pathname === href
+                              ? 'bg-primary/10 border-primary/40'
                               : 'bg-secondary/5 border-border group-hover:border-primary/30 group-hover:bg-primary/5'
-                          }`}>
+                            }`}>
                             <Icon className={`w-5 h-5 transition-colors ${pathname === href ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
                           </div>
                           <div>
@@ -142,16 +142,15 @@ const Navbar = () => {
                     <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">Creative Design</h4>
                     <div className="space-y-4">
                       {[
-                        { label: 'UI / UX Design', href: '/services/design', Icon: Layout },
+                        { label: 'UI/UX Design', href: '/services/design', Icon: Layout },
                         { label: 'Graphic Design', href: '/services/graphic-design', Icon: ImageIcon },
                         // { label: 'Brand Identity', href: '/services/branding', Icon: Pen },
                       ].map(({ label, href, Icon }) => (
                         <Link key={label} href={href} className="group flex items-center gap-4 transition-all">
-                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${
-                            pathname === href 
-                              ? 'bg-primary/10 border-primary/40' 
+                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${pathname === href
+                              ? 'bg-primary/10 border-primary/40'
                               : 'bg-secondary/5 border-border group-hover:border-primary/30 group-hover:bg-primary/5'
-                          }`}>
+                            }`}>
                             <Icon className={`w-5 h-5 transition-colors ${pathname === href ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
                           </div>
                           <div>
@@ -192,31 +191,30 @@ const Navbar = () => {
                   </div> */}
 
                   {/* Local */}
-                 <div className="pt-2 border-t border-border ">
-                   <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6 mt-6">Local Presence</h4>
-                    <div className="space-y-4">
-                      {[
-                       // { label: 'Location SEO', href: '/services/local-presence', Icon: MapPin },
-                        { label: 'Local Business', href: '/services/google-maps', Icon: Building2 },
-                        // { label: 'Brand Identity', href: '/services/branding', Icon: Pen },
-                      ].map(({ label, href, Icon }) => (
-                        <Link key={label} href={href} className="group flex items-center gap-4 transition-all">
-                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${
-                            pathname === href 
-                              ? 'bg-primary/10 border-primary/40' 
-                              : 'bg-secondary/5 border-border group-hover:border-primary/30 group-hover:bg-primary/5'
-                          }`}>
-                            <Icon className={`w-5 h-5 transition-colors ${pathname === href ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
-                          </div>
-                          <div>
-                            <p className={`text-sm font-semibold transition-colors ${pathname === href ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>{label}</p>
-                            <p className="text-[11px] text-muted-foreground leading-tight">Visual excellence</p>
-                          </div>
-                        </Link>
-                      ))}
+                  <div className="pt-2 border-t border-border ">
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6 mt-6">Local Presence</h4>
+                      <div className="space-y-4">
+                        {[
+                          // { label: 'Location SEO', href: '/services/local-presence', Icon: MapPin },
+                          { label: 'Local Business', href: '/services/google-maps', Icon: Building2 },
+                          // { label: 'Brand Identity', href: '/services/branding', Icon: Pen },
+                        ].map(({ label, href, Icon }) => (
+                          <Link key={label} href={href} className="group flex items-center gap-4 transition-all">
+                            <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${pathname === href
+                                ? 'bg-primary/10 border-primary/40'
+                                : 'bg-secondary/5 border-border group-hover:border-primary/30 group-hover:bg-primary/5'
+                              }`}>
+                              <Icon className={`w-5 h-5 transition-colors ${pathname === href ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
+                            </div>
+                            <div>
+                              <p className={`text-sm font-semibold transition-colors ${pathname === href ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>{label}</p>
+                              <p className="text-[11px] text-muted-foreground leading-tight">Visual excellence</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
                     {/* <div className="space-y-4">
                       {[
                         // { label: 'Location SEO', href: '/services/local-presence', Icon: MapPin },
@@ -241,11 +239,11 @@ const Navbar = () => {
                         </div>
                       ))}
                     </div> */}
-                     
-                  </div> 
+
+                  </div>
                 </div>
 
-                {/* CTA / Right Section */} 
+                {/* CTA / Right Section */}
                 <div className="col-span-4 bg-secondary/5 border-l border-border p-8 flex flex-col justify-between">
                   <div>
                     <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-6">Expertise</h4>
@@ -270,8 +268,8 @@ const Navbar = () => {
 
                   <Link href="/contact" className="mt-8 group block p-5 rounded-2xl bg-primary text-white shadow-xl shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-center justify-between mb-2">
-                       <Zap className="w-5 h-5 text-primary-foreground/80" />
-                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <Zap className="w-5 h-5 text-primary-foreground/80" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                     <p className="font-bold text-sm">Start Your Journey</p>
                     <p className="text-[10px] text-primary-foreground/70">Consult with us today</p>
@@ -283,87 +281,74 @@ const Navbar = () => {
           )}
         </div>
 
-        <Link href="/portfolio" className={`font-medium transition ${pathname === '/portfolio' ? 'text-primary' : 'text-white/90 hover:text-primary'}`}>Portfolio</Link>
+        <Link href="/portfolio" className={`font-medium transition ${pathname === '/portfolio' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Portfolio</Link>
         {/* <Link href="/courses" className={`font-medium transition ${pathname === '/courses' ? 'text-primary' : 'text-white/90 hover:text-primary'}`}>Courses</Link> */}
-        {/* <Link href="/contact" className={`font-medium transition ${pathname === '/contact' ? 'text-primary' : 'text-white/90 hover:text-primary'}`}>Contact</Link> */}
-        {/* <Link href="/blog" className={`font-medium transition ${pathname === '/blog' ? 'text-primary' : 'text-white/90 hover:text-primary'}`}>Blog</Link> */}
+        <Link href="/blog" className={`font-medium transition ${pathname === '/blog' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Blog</Link>
+        <Link href="/faq" className={`font-medium transition ${pathname === '/faq' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>FAQ</Link>
+        <Link href="/privacy-policy" className={`font-medium transition ${pathname === '/privacy-policy' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Privacy Policy</Link>
 
-        {/* Theme Toggle */}
-        <button 
-          onClick={toggleTheme} 
-          className="relative flex items-center bg-muted/10 border border-border rounded-full p-1 w-14 h-8 transition-colors hover:bg-muted/20"
-          aria-label="Toggle theme"
-        >
-          <div className={`absolute top-1 left-1 w-6 h-6 bg-primary rounded-full shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}>
-            {theme === 'light' ? <Sun className="w-3.5 h-3.5 text-white" /> : <Moon className="w-3.5 h-3.5 text-white" />}
-          </div>
-        </button>
       </div>
 
       {/* Mobile Hamburger */}
-      <button className={`md:hidden text-2xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}>
+      <button className={`md:hidden text-2xl ${theme === 'dark' ? 'text-white' : 'text-white'}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}>
         {mobileMenuOpen ? <CloseIcon className="w-8 h-8" aria-hidden="true" /> : <Menu className="w-8 h-8" aria-hidden="true" />}
       </button>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className={`fixed left-0 w-full bg-card p-6 flex flex-col gap-4 shadow-2xl md:hidden border-b border-border animate-in slide-in-from-top z-40 overflow-y-auto transition-all duration-300 ${isScrolled ? 'top-16 max-h-[calc(100vh-4rem)]' : 'top-20 max-h-[calc(100vh-5rem)]'}`}>
-          <Link href="/" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>Home</Link>
-          <Link href="/about" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/about' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>About Us</Link>
-          <div className="py-2 border-b border-border">
+          <Link href="/" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Home</Link>
+          <Link href="/about" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/about' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>About Us</Link>
+          <Link href="/contact" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/contact' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Contact</Link>
+
+          {/* <Link href="/contact" className={`font-medium transition ${pathname === '/contact' ? 'text-primary' : 'text-white/90 hover:text-primary'}`}>Contact Us</Link> */}
+
+          <div className="py-2 border-b border-border rounded-2xl pl-4">
             <button onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)} className="flex items-center justify-between w-full font-semibold text-lg text-foreground hover:text-primary transition-colors">
               Services
-              <ChevronDown className={`w-5 h-5 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-5 h-5 absolute right-8  transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             {servicesDropdownOpen && (
               <div className="-pl-4 mt-4 space-y-5 animate-in slide-in-from-top-2 duration-300">
+                  <div>
+                  <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Creative Design</h5>
+                  <div className="flex flex-col">
+                    <Link href="/services/design" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/design' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>UI/UX Design</Link>
+                    <Link href="/services/graphic-design" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/graphic-design' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Graphic Design</Link>
+                    {/* <Link href="/services/branding" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/branding' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Brand Identity</Link> */}
+                  </div>
+                </div>
                 <div>
                   <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Development</h5>
                   <div className="flex flex-col">
                     <Link href="/services/web-development" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/web-development' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Web Development</Link>
                     <Link href="/services/app-development" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/app-development' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>App Development</Link>
-                    <Link href="/services/desktop-development" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/desktop-development' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Desktop Apps</Link>
+                    <Link href="/services/desktop-development" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/desktop-development' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Desktop Development</Link>
                   </div>
                 </div>
-                <div>
-                  <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Creative Design</h5>
-                  <div className="flex flex-col">
-                    <Link href="/services/design" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/design' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>UI / UX Design</Link>
-                    <Link href="/services/graphic-design" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/graphic-design' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Graphic Design</Link>
-                    <Link href="/services/branding" className={`block py-2.5 px-2 rounded-lg text-sm font-medium transition-colors ${pathname === '/services/branding' ? 'text-primary bg-primary/5' : 'text-foreground/80 hover:text-primary hover:bg-primary/5'}`}>Brand Identity</Link>
-                  </div>
-                </div>
-                <div>
+              
+                {/* <div>
                   <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Marketing</h5>
                   <div className="flex flex-col">
                     <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors opacity-50 cursor-default ${pathname === '/services/seo' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>SEO Strategies <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Soon</span></div>
                     <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors opacity-50 cursor-default ${pathname === '/services/marketing' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Content Growth <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Soon</span></div>
                   </div>
-                </div>
+                </div> */}
                 <div>
-                  <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Local Presence</h5>
+                  <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Business Location</h5>
                   <div className="flex flex-col">
-                    <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors opacity-50 cursor-default ${pathname === '/services/local-presence' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Location SEO <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Soon</span></div>
-                    <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors opacity-50 cursor-default ${pathname === '/services/google-maps' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Local Business <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Soon</span></div>
+                    <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors  cursor-default ${pathname === '/services/local-presence' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Google Business Setup </div>
+                    {/* <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors opacity-50 cursor-default ${pathname === '/services/google-maps' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Local Business <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Soon</span></div> */}
                   </div>
                 </div>
               </div>
             )}
           </div>
-          <Link href="/portfolio" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/portfolio' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>Portfolio</Link>
-          <Link href="/courses" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/courses' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>Courses</Link>
-          <Link href="/contact" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/contact' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>Contact</Link>
-          <div className="flex justify-between items-center py-4">
-            <span className="font-semibold text-foreground">Switch Appearance</span>
-            <button 
-              onClick={toggleTheme} 
-              className="relative flex items-center bg-muted/10 border border-border rounded-full p-1 w-14 h-8 transition-colors"
-            >
-              <div className={`absolute top-1 left-1 w-6 h-6 bg-primary rounded-full shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}>
-                {theme === 'light' ? <Sun className="w-3.5 h-3.5 text-white" /> : <Moon className="w-3.5 h-3.5 text-white" />}
-              </div>
-            </button>
-          </div>
+          <Link href="/portfolio" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/portfolio' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Portfolio</Link>
+          {/* <Link href="/courses" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/courses' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>Courses</Link> */}
+          <Link href="/blog" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/blog' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Blog</Link>
+          <Link href="/faq" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/faq' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>FAQ</Link>
+          <Link href="/privacy-policy" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/privacy-policy' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Privacy Policy</Link>
         </div>
       )}
     </nav>

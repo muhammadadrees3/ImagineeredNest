@@ -4,9 +4,9 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { Code, Users, Lightbulb } from 'lucide-react';
 
 const stats = [
-  { number: '5', label: 'Projects Delivered', icon: Code, suffix: '+' },
-  { number: '10', label: 'Client Satisfaction', icon: Users, suffix: '+' },
-  { number: '4', label: 'Years Experience', icon: Lightbulb, suffix: '+' },
+  { number: '50', label: 'Projects Delivered', icon: Code, suffix: '+' },
+  { number: '100', label: 'Client Satisfaction', icon: Users, suffix: '%' },
+  { number: '12', label: 'Years Experience', icon: Lightbulb, suffix: '+' },
 ];
 
 function Counter() {

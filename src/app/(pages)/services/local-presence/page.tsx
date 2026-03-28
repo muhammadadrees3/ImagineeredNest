@@ -1,8 +1,8 @@
 'use client';
 
 import { MapPin, Building2, Star, Zap, Search, Globe } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
-import ImageWithLoader from '@/app/components/ImageWithLoader';
 
 export default function LocalPresencePage() {
   return (
@@ -28,11 +28,11 @@ export default function LocalPresencePage() {
               </Link>
             </div>
             <div className="flex-1 w-full max-w-2xl">
-                <ImageWithLoader 
+                <Image
                   src="https://placehold.co/800x600/2563eb/white?text=Local+Business+Visibility" 
                   alt="Local Presence" 
-                  usePlainImg={true}
-                  containerClassName="rounded-2xl shadow-2xl border border-border overflow-hidden"
+                  width={400}
+                  height={500}
                   className="w-full h-full object-cover" 
                 />
             </div>
