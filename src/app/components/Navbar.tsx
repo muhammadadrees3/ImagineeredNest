@@ -119,7 +119,7 @@ const Navbar = () => {
                       {[
                         { label: 'Web Development', href: '/services/web-development', Icon: Globe },
                         { label: 'App Development', href: '/services/app-development', Icon: Smartphone },
-                        { label: 'Desktop Apps', href: '/services/desktop-development', Icon: Monitor },
+                        { label: 'Desktop Development', href: '/services/desktop-development', Icon: Monitor },
                       ].map(({ label, href, Icon }) => (
                         <Link key={label} href={href} className="group flex items-center gap-4 transition-all">
                           <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${pathname === href
@@ -284,8 +284,6 @@ const Navbar = () => {
         <Link href="/portfolio" className={`font-medium transition ${pathname === '/portfolio' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Portfolio</Link>
         {/* <Link href="/courses" className={`font-medium transition ${pathname === '/courses' ? 'text-primary' : 'text-white/90 hover:text-primary'}`}>Courses</Link> */}
         <Link href="/blog" className={`font-medium transition ${pathname === '/blog' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Blog</Link>
-        <Link href="/faq" className={`font-medium transition ${pathname === '/faq' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>FAQ</Link>
-        <Link href="/privacy-policy" className={`font-medium transition ${pathname === '/privacy-policy' ? ' hover:text-primary bg-white text-primary rounded-xl p-2' : 'text-white/90 hover:text-primary'}`}>Privacy Policy</Link>
 
       </div>
 
@@ -337,7 +335,7 @@ const Navbar = () => {
                 <div>
                   <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Business Location</h5>
                   <div className="flex flex-col">
-                    <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors  cursor-default ${pathname === '/services/local-presence' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Google Business Setup </div>
+                    <Link href="/services/google-maps" className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors  cursor-default ${pathname === '/services/google-maps' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Google Business Setup </Link>
                     {/* <div className={`flex items-center justify-between py-2.5 px-2 rounded-lg text-sm font-medium transition-colors opacity-50 cursor-default ${pathname === '/services/google-maps' ? 'text-primary bg-primary/5' : 'text-foreground/80'}`}>Local Business <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Soon</span></div> */}
                   </div>
                 </div>
@@ -347,8 +345,6 @@ const Navbar = () => {
           <Link href="/portfolio" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/portfolio' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Portfolio</Link>
           {/* <Link href="/courses" className={`py-2 font-semibold text-lg border-b border-border transition-colors ${pathname === '/courses' ? 'text-primary' : 'text-foreground hover:text-primary'}`}>Courses</Link> */}
           <Link href="/blog" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/blog' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Blog</Link>
-          <Link href="/faq" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/faq' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>FAQ</Link>
-          <Link href="/privacy-policy" className={`py-2 px-4 rounded-xl font-semibold text-lg transition-all ${pathname === '/privacy-policy' ? 'bg-white text-primary shadow-sm' : 'text-foreground hover:text-primary border-b border-border'}`}>Privacy Policy</Link>
         </div>
       )}
     </nav>

@@ -63,7 +63,7 @@ export default function page() {
     <div className="min-h-screen mt-20 bg-background text-foreground">
       <main className="">
         {/* --- Hero Section --- */}
-        <Hero title1="We Build " title2='Modern Solutions' subtitle="We build high quality, user focused websites, from simple pages to complex web applications." image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336752/company-website/images/sample/web-development/hero.jpg" />
+        <Hero title1="We Build Modern" title2=' Websites' subtitle="We build high quality, user focused websites, from simple pages to complex web applications." image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336752/company-website/images/sample/web-development/hero.jpg" />
 
         {/* --- How We Work Section --- */}
         <How_To_Work/>

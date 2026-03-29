@@ -7,11 +7,13 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
-        protocol: 'https',
+        protocol: 'https'
+        ,
         hostname: '**',
       },
     ],
   },
+  allowedDevOrigins: ['192.168.100.29'],
 };
 
 export default nextConfig;

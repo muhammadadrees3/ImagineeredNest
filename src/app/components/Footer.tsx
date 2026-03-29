@@ -107,10 +107,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center pt-8 border-t border-border">
+      <div className="text-center pt-8 border-t border-border flex md:justify-between justify-center items-center gap-2 flex-wrap " >
         <p className="text-white text-sm tracking-wide">
           &copy; 2025 - {new Date().getFullYear()}, All rights reserved | Design & Develop by <span className="text-white  font-bold ">ImagineereNest,</span> Pakistan
         </p>
+        <div className='flex justify-center gap-4'>
+          <Link href="/privacy-policy" className="text-white text-sm tracking-wide">Privacy Policy</Link>
+          <Link href="/terms-and-conditions" className="text-white text-sm tracking-wide">Terms and Conditions</Link>
+        </div>
       </div>
     </footer>
   );

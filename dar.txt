@@ -1,0 +1,36 @@
+# Imagineerednest Project Analysis
+
+## Company Identity
+- **Name**: Imagineerednest
+- **Tagline**: From Zero to Digital Success
+- **Location**: Pakistan
+- **Website**: https://imagineerednest.com
+- **Core Focus**: Providing end-to-end digital solutions for new and established businesses.
+
+## Services Offered
+1. **UI/UX Design**: Modern, user-centric interface and experience design.
+2. **Graphic Design**: Visual branding and creative assets.
+3. **Web Development**: Scalable and responsive web applications (Next.js focus).
+4. **App Development**: Mobile application solutions.
+5. **Desktop Applications**: Recent expansion into task management, time tracking, and productivity tools.
+6. **SEO & Digital Marketing**: Search engine optimization and online brand growth.
+7. **Google Business Setup**: Specialized Google Maps and business profile optimization.
+
+## Professional Promise
+- "We guide your new business every step of the way."
+- High-quality design, scalable development, and powerful digital marketing strategies.
+- 100% Client Satisfaction with agile development processes.
+
+## Technical Environment
+- **Framework**: Next.js 15+ (App Router)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Fonts**: Poppins (Google Fonts)
+- **Deployment**: Production-ready with SEO and OpenGraph metadata integration.
+
+## Project Structure
+- `src/app/(pages)`: Route-grouped pages (About, Services, Portfolio, FAQ, etc.)
+- `src/app/components`: Reusable UI components.
+- `src/app/data`: Centralized data management for portfolio and blogs.
+- `public/images`: Organized asset storage for logos, project previews, and media.

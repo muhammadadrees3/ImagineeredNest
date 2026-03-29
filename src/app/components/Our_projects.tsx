@@ -3,6 +3,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Layers } from 'lucide-react';
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Lightbox from './Lightbox';
+import { Project } from '../data/portfolio_data';
 
 /* ─── Skeleton Card ──────────────────────────────────────────────── */
 function SkeletonCard() {
@@ -15,7 +16,7 @@ function SkeletonCard() {
 
 /* ─── Project Card ───────────────────────────────────────────────── */
 interface ProjectCardProps {
-  proj: any;
+  proj: Project;
   index: number;
   onOpen: (image: string, extras: string[], alt: string) => void;
 }
@@ -41,7 +42,7 @@ const ProjectCard = React.memo(({ proj, index, onOpen }: ProjectCardProps) => {
   return (
     <div
       ref={ref}
-      onClick={() => onOpen(proj.image, proj.extraImages ?? [], proj.alt)}
+      onClick={() => onOpen(proj.image, proj.extraImages ?? [], proj.alt ?? proj.title)}
       style={{ transitionDelay: delay }}
       className={`group relative rounded-2xl overflow-hidden cursor-pointer border border-border shadow-sm aspect-[4/3] transition-all duration-700 ease-out will-change-transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'} hover:-translate-y-1 hover:shadow-xl hover:border-primary/40`}
     >
@@ -61,7 +62,7 @@ const ProjectCard = React.memo(({ proj, index, onOpen }: ProjectCardProps) => {
       */}
       <Image
         src={proj.image}
-        alt={proj.alt}
+        alt={proj.alt ?? proj.title}
         fill
         sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
         className={`object-cover transition-all duration-700 ease-out group-hover:scale-[1.06] ${loaded ? 'opacity-100' : 'opacity-0'}`}
@@ -78,7 +79,7 @@ const ProjectCard = React.memo(({ proj, index, onOpen }: ProjectCardProps) => {
         </span>
 
         <p className="text-white font-semibold text-sm md:text-base leading-snug translate-y-3 group-hover:translate-y-0 transition-transform duration-300 delay-[50ms]">
-          {proj.alt}
+          {proj.alt ?? proj.title}
         </p>
 
         <div className="mt-1.5 flex items-center gap-1.5 text-white/60 text-xs font-semibold uppercase tracking-wider translate-y-3 group-hover:translate-y-0 transition-transform duration-300 delay-[70ms]">
@@ -91,6 +92,7 @@ const ProjectCard = React.memo(({ proj, index, onOpen }: ProjectCardProps) => {
 ProjectCard.displayName = 'ProjectCard';
 
 /* ─── Main Component ─────────────────────────────────────────────── */
+
 export default function Our_projects({
   projects,
   categories,

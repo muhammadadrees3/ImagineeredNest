@@ -44,9 +44,9 @@ export default function GraphicDesignPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main className="">
+      <main className="pt-20">
         {/* Hero */}
-        <Hero title1='Creative Graphic' title2='Design' imageWidth={600} subtitle='We create striking visuals that showcase and elevate your brand.' image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336506/company-website/images/sample/graphic-design/designe.jpg" />
+        <Hero title1='Creative Visual ' title2='Graphic Design' imageWidth={700} subtitle='We create striking visuals that showcase and elevate your brand.' image="/images/sample/graphic-design/dummy/designe.jpg" />
         {/* Skills */}
         <How_To_Work steps={steps} />
         {/* Our work */}

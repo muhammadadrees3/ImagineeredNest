@@ -46,7 +46,7 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
 };
 
   return (
-    <section className="pt-20 relative px-5  md:px-10 flex flex-col md:flex-row items-center justify-between gap-12  w-full  py-10 md:py-20 overflow-hidden">
+    <section className=" relative px-5  md:px-10 flex flex-col md:flex-row items-center justify-between gap-12  w-full  py-10 md:py-20 overflow-hidden">
       {/* Background Decorative Element */}
 
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[120px] -z-10 rounded-full"></div>
@@ -110,7 +110,7 @@ const Hero = ({title1,title2, subtitle, image,video,imageHeight,imageWidth}: Her
                 width={imageWidth || 800} 
                 height={imageHeight || 400} 
                 onLoadingComplete={() => setIsImageLoaded(true)}
-                className={`object-cover rounded-2xl transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} 
+                className={`object-contain object-bottom rounded-2xl transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} 
               />
             </div>
           )}

@@ -42,8 +42,8 @@ export default function UIDesignPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main className="">
-        <Hero title1='Intuitive UI/UX' title2='Design' subtitle='We craft intuitive, engaging, and visually stunning digital experiences.' image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336482/company-website/images/sample/design/ux1.jpg" />
+      <main className="pt-20">
+        <Hero title1='Dynamic Creative ' title2='UI/UX Design' subtitle='We craft intuitive, engaging, and visually stunning digital experiences.' image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336482/company-website/images/sample/design/ux1.jpg" />
         {/* Features */}
         <How_To_Work steps={steps} />
         {/* Portfolio Grid */}
