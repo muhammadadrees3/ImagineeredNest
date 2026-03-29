@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { BLOG_POSTS } from "@/app/components/Blog/Blogdata";
+import { BLOG_POSTS, type BlogPost } from "@/app/components/Blog/Blogdata";
 // ─────────────────────────────────────────────────────────────────
 // HELPERS
 // ─────────────────────────────────────────────────────────────────

@@ -1,5 +1,5 @@
 import BlogDetail from "@/app/components/Blog/BlogDetail";
-import { BLOG_POSTS } from "@/app/components/Blog/BlogList"; // share data
+import { BLOG_POSTS } from "@/app/components/Blog/Blogdata"; // share data
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = Array.isArray(BLOG_POSTS) ? BLOG_POSTS.find(p => p.slug === params.slug) : null;

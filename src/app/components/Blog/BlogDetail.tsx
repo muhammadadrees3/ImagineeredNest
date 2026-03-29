@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { BLOG_POSTS } from "@/app/components/Blog/Blogdata";
+import { BLOG_POSTS, BlogPost } from "@/app/components/Blog/Blogdata";
 // ─────────────────────────────────────────────────────────────────
 // HELPERS
 // ─────────────────────────────────────────────────────────────────
@@ -160,7 +160,7 @@ export default function BlogDetail({ slug }: BlogDetailProps) {
           />
 
           {/* Tags */}
-          {current.tags?.length > 0 && (
+          {current.tags && current.tags.length > 0 && (
             <footer className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border" aria-label="Article tags">
               {current.tags.map((tag) => (
                 <span key={tag} className="text-[11px] tracking-widest uppercase px-4 py-1.5 rounded-full border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors cursor-default">{tag}</span>

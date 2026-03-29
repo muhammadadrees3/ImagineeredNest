@@ -4,9 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Palette, Layout, Image as ImageIcon, Monitor, Crown } from 'lucide-react';
 
 /**
+ * Category Type Definition
+ */
+type FAQCategory = 'logo' | 'poster' | 'banner' | 'web' | 'branding';
+
+/**
  * Category Image Map - Optimized SVG images
  */
-const categoryImages = {
+const categoryImages: Record<FAQCategory, string> = {
   logo: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Crect fill="%231f3a93" width="600" height="400"/%3E%3Ccircle cx="300" cy="200" r="80" fill="%234f94ff" opacity="0.8"/%3E%3Ccircle cx="300" cy="200" r="60" fill="%23ffffff" opacity="0.9"/%3E%3Ctext x="300" y="215" font-family="system-ui" font-size="24" font-weight="bold" fill="%231f3a93" text-anchor="middle" dominant-baseline="middle"%3ELogo Design%3C/text%3E%3Crect x="50" y="320" width="500" height="2" fill="%234f94ff" opacity="0.5"/%3E%3C/svg%3E',
   poster: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Crect fill="%23ffffff" width="600" height="400"/%3E%3Crect x="40" y="30" width="520" height="340" fill="none" stroke="%231f3a93" stroke-width="3"/%3E%3Crect x="60" y="50" width="480" height="120" fill="%234f94ff" opacity="0.15"/%3E%3Ctext x="300" y="120" font-family="system-ui" font-size="36" font-weight="bold" fill="%231f3a93" text-anchor="middle" dominant-baseline="middle"%3EPOSTER DESIGN%3C/text%3E%3Crect x="60" y="200" width="480" height="140" fill="%23f0f4ff"/%3E%3Ctext x="300" y="250" font-family="system-ui" font-size="16" fill="%231f3a93" text-anchor="middle" dominant-baseline="middle"%3EProfessional Poster Layout%3C/text%3E%3Crect x="40" y="30" width="520" height="340" fill="none" stroke="%234f94ff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/%3E%3C/svg%3E',
   banner: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%231f3a93;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%234f94ff;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="600" height="400"/%3E%3Crect x="50" y="100" width="500" height="200" fill="%23ffffff" opacity="0.15" rx="8"/%3E%3Ctext x="300" y="190" font-family="system-ui" font-size="48" font-weight="bold" fill="%23ffffff" text-anchor="middle" dominant-baseline="middle"%3EBANNER%3C/text%3E%3Ctext x="300" y="230" font-family="system-ui" font-size="18" fill="%23ffffff" text-anchor="middle" dominant-baseline="middle"%3EHigh-Impact Design%3C/text%3E%3C/svg%3E',
@@ -15,9 +20,20 @@ const categoryImages = {
 };
 
 /**
+ * FAQ Item Type Definition
+ */
+interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+  category: FAQCategory;
+  icon: React.ReactNode;
+}
+
+/**
  * FAQ Items Data
  */
-const faqItems = [
+const faqItems: FAQItem[] = [
   {
     id: 'logo-price',
     question: 'What is the price of the Normal Logo?',

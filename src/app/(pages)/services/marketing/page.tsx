@@ -1,6 +1,7 @@
 'use client';
 
 import { Megaphone, Users, Share2, Zap, BarChart, Heart } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function MarketingPage() {
@@ -27,11 +28,11 @@ export default function MarketingPage() {
               </Link>
             </div>
             <div className="flex-1 w-full max-w-2xl text-justify">
-                <ImageWithLoade 
+                <Image 
                   src="https://placehold.co/800x600/2563eb/white?text=Digital+Marketing+Impact" 
                   alt="Marketing" 
-                  usePlainImg={true}
-                  containerClassName="rounded-2xl shadow-2xl border border-border overflow-hidden"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover" 
                 />
             </div>
