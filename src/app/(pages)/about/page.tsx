@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '@/context/ThemeContext';
 import Owners from '@/app/components/Owners';
 import Link from 'next/link';
 import { ArrowRight, Zap, Target, Eye, Code, Users, Lightbulb, Sparkles, Rocket, ChevronDown, Smile, RefreshCw, Headset, Wallet } from 'lucide-react';
@@ -113,7 +112,7 @@ export default function About() {
                   {/* Founder Label */}
                   <div className="mt-6 text-center lg:text-left pl-4 border-l-2 border-blue-600">
                     <h3 className="text-xl font-black uppercase tracking-tighter">Muhammad Zeeshan</h3>
-                    <p className="text-sm text-purple-600 dark:text-purple-400 font-bold uppercase tracking-widest">Founder & CEO</p>
+                    <p className="text-sm text-purple-600 font-bold uppercase tracking-widest">Founder & CEO</p>
 
                   </div>
                 </div>
@@ -123,7 +122,7 @@ export default function About() {
               <div className="w-full lg:w-2/5 text-center order-1 lg:order-2" data-aos="zoom-in">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 mb-6">
                   <Sparkles className="w-4 h-4 text-blue-500" />
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600">
                     Leadership Vision
                   </span>
                 </div>
@@ -159,7 +158,7 @@ export default function About() {
                   {/* Founder Label */}
                   <div className="mt-6 text-center lg:text-right pr-4 border-r-2 border-purple-600">
                     <h3 className="text-xl font-black uppercase tracking-tighter">Muhammad Adrees</h3>
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest">Founder & CTO</p>
+                    <p className="text-sm text-blue-600 font-bold uppercase tracking-widest">Founder & CTO</p>
                   </div>
                 </div>
               </div>

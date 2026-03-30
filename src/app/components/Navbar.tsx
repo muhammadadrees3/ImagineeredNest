@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, lazy } from 'react';
-import { useTheme } from '@/context/ThemeContext';
 import { usePathname } from 'next/navigation';
 import {
   Globe, Smartphone, Monitor,
@@ -21,7 +20,6 @@ const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
 
   // Close DESKTOP dropdown when clicking outside
@@ -106,7 +104,7 @@ const Navbar = () => {
             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
           {servicesDropdownOpen && (
-            <div className="absolute top-[calc(100%+1.6rem)] -left-[170px] -translate-x-1/2 bg-card rounded-bl-2xl shadow-2xl border border-border w-[1000px] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="absolute top-[calc(100%+1.6rem)] -left-[200px] -translate-x-1/2 bg-card rounded-bl-2xl shadow-2xl border border-border w-[1000px] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="grid grid-cols-12">
 
                 {/* Links Section */}
@@ -288,7 +286,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Hamburger */}
-      <button className={`md:hidden text-2xl ${theme === 'dark' ? 'text-white' : 'text-white'}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}>
+      <button className=" md:hidden text-2xl text-white " onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}>
         {mobileMenuOpen ? <CloseIcon className="w-8 h-8" aria-hidden="true" /> : <Menu className="w-8 h-8" aria-hidden="true" />}
       </button>
 

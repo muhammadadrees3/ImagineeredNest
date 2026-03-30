@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -58,7 +58,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
       <head>
-        <script
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -76,13 +78,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-poppins bg-background text-foreground antialiased overflow-x-hidden">
-        <ThemeProvider>
+      <body className="font-poppins bg-white text-black antialiased overflow-x-hidden">
           <Navbar />
           {children}
           <Footer />
           <BackToTop />
-        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Code, Palette, ArrowRight, Pen, PenTool, Monitor, MonitorSmartphoneIcon, Smartphone, MonitorCheckIcon, WallpaperIcon, LocateIcon, MapPin, MapPinned } from "lucide-react";
-import { useTheme } from "@/context/ThemeContext";
 
 const services = [
   {
@@ -65,15 +64,11 @@ const services = [
 ];
 
 const ServicesGrid = () => {
-  const { theme } = useTheme();
 
   return (
     <section id="services" className="py-20 px-5">
       <h2
-        className={` ${
-          theme === "dark" ? "section-title-in-dark" : "section-title-in-light"
-        }`}
-      >
+        className="section-title-in-light">
         Our Services
       </h2>
 
@@ -96,7 +91,7 @@ const ServicesGrid = () => {
                 return (
                   <div
                     key={index}
-                    className="group bg-card border-2 border-blue-400 rounded-3xl md:p-8  p-3 hover:shadow-custom hover:-translate-y-2 transition-all duration-300"
+                    className="group bg-white text-black border-2 border-blue-400  rounded-3xl md:p-8  p-3 hover:shadow-custom hover:-translate-y-2 transition-all duration-300"
                     data-aos="zoom-in"
                     data-aos-delay={index * 100}
                   >

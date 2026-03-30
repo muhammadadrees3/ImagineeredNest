@@ -68,7 +68,7 @@ const Lightbox = ({
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-in fade-in duration-500 backdrop-blur-xl"
+      className="fixed inset-0 z-100 bg-black/95 flex items-center justify-center animate-in fade-in duration-500 backdrop-blur-xl"
       onClick={onClose}
     >
       {/* Background Ambient Glow */}
@@ -80,7 +80,7 @@ const Lightbox = ({
       <div className="relative w-full h-full flex flex-col p-4 md:p-6 lg:p-10" onClick={(e) => e.stopPropagation()}>
         
         {/* HEADER */}
-        <div className="flex items-center justify-between w-full mb-4 md:mb-8 z-[80]">
+        <div className="flex items-center justify-between w-full mb-4 md:mb-8 z-80">
           <div className="flex flex-col">
             <h3 className="text-white font-semibold text-lg md:text-2xl tracking-tight drop-shadow-md">
               {title}
@@ -125,7 +125,7 @@ const Lightbox = ({
             {({ zoomIn, zoomOut, resetTransform }) => (
               <>
                 {/* FLOATING ZOOM CONTROLS */}
-                <div className="absolute right-4 md:right-8 top-10 -translate-y-1/2 z-[80] flex  gap-2 p-1.5 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 lg:opacity-100 transition-opacity">
+                <div className="absolute right-4 md:right-8 top-10 -translate-y-1/2 z-80 flex  gap-2 p-1.5 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 lg:opacity-100 transition-opacity">
                   <button onClick={() => zoomIn()} className="p-3 rounded-xl hover:bg-white/10 text-white/80 transition-colors"><ZoomIn className="w-5 h-5" /></button>
                   <button onClick={() => zoomOut()} className="p-3 rounded-xl hover:bg-white/10 text-white/80 transition-colors"><ZoomOut className="w-5 h-5" /></button>
                   <div className="h-px bg-white/10 mx-2" />
@@ -148,7 +148,7 @@ const Lightbox = ({
           </TransformWrapper>
 
           {/* TESTIMONIAL OVERLAY (Responsive) */}
-          <div className={`absolute bottom-6 left-6 right-6 md:right-auto md:max-w-md z-[90] transition-all duration-500 ease-in-out ${
+          <div className={`absolute bottom-6 left-6 right-6 md:right-auto md:max-w-md z-90 transition-all duration-500 ease-in-out ${
             showDetails ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
           }`}>
             <div className="bg-white/10 backdrop-blur-2xl border border-white/20 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden group">
@@ -170,7 +170,7 @@ const Lightbox = ({
 
           {/* NAVIGATION ARROWS */}
           {images.length > 1 && (
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-2 md:px-6 pointer-events-none z-[70]">
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-2 md:px-6 pointer-events-none z-70">
               <button
                 onClick={(e) => { e.stopPropagation(); prevImg(); }}
                 className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 hover:bg-primary border border-white/10 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-90 backdrop-blur-sm pointer-events-auto"
@@ -188,7 +188,7 @@ const Lightbox = ({
         </div>
 
         {/* THUMBNAILS FOOTER */}
-        <div className="mt-6 flex flex-col items-center gap-6 z-[80]">
+        <div className="mt-6 flex flex-col items-center gap-6 z-80">
           {images.length > 1 && (
             <div 
               id="thumbnail-container"

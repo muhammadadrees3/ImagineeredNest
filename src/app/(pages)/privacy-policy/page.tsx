@@ -1,38 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Eye, FileText, Bell, Mail } from "lucide-react";
+import { Shield, Lock, Eye, FileText, Bell, Mail, Database, RefreshCw, Phone } from "lucide-react";
 
 const sections = [
   {
     icon: Eye,
     title: "Information We Collect",
-    content: "We collect information you provide directly to us, such as when you create an account, request a service, or communicate with us. This may include your name, email address, phone number, and business details."
+    content: "We only collect the basic information you choose to provide through our contact form or direct communication: name, email address, phone number (if you want us to call you). We do not require login accounts, and we do not collect unnecessary personal information."
   },
   {
     icon: Lock,
     title: "How We Use Your Information",
-    content: "We use the information we collect to provide, maintain, and improve our services, to develop new ones, and to protect Imagineerednest and our users. We also use this information to offer you tailored content – like giving you more relevant search results and ads."
+    content: "We use your information only to respond to your inquiries, answer your questions, and arrange calls or discuss our services. We do not use your information for unrelated purposes."
   },
   {
     icon: Shield,
-    title: "Data Security",
-    content: "We work hard to protect Imagineerednest and our users from unauthorized access to or unauthorized alteration, disclosure, or destruction of information we hold. We restrict access to personal information to Imagineerednest employees, contractors, and agents who need to know that information."
+    title: "Data Sharing",
+    content: "Your information is kept confidential. We do not sell your personal data, nor share your data with third parties. Only our internal team may access your information. We may disclose information only if required by law or a legal authority."
   },
   {
-    icon: FileText,
-    title: "Information We Share",
-    content: "We do not share personal information with companies, organizations, or individuals outside of Imagineerednest unless one of the following circumstances applies: with your consent, for external processing, or for legal reasons."
+    icon: Database,
+    title: "Data Retention",
+    content: "We keep your information only for as long as it is needed to respond to your request or complete communication. After that, we delete it securely."
   },
   {
-    icon: Bell,
-    title: "Changes to This Policy",
-    content: "Our Privacy Policy may change from time to time. We will post any privacy policy changes on this page and, if the changes are significant, we will provide a more prominent notice (including, for certain services, email notification of privacy policy changes)."
+    icon: RefreshCw,
+    title: "Your Rights",
+    content: "You may request to access, update, or delete your personal information at any time by contacting us at privacy@imagineerednest.com."
+  },
+  {
+    icon: Shield,
+    title: "Security",
+    content: "We take reasonable measures to protect your information from unauthorized access, misuse, or disclosure."
   },
   {
     icon: Mail,
     title: "Contact Us",
-    content: "If you have any questions about this Privacy Policy, please contact us at support@imagineerednest.com."
+    content: "If you have any questions about this Privacy Policy, please contact us at: support@imagineerednest.com or call us at +92 3480550152."
   }
 ];
 
@@ -50,7 +55,10 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Your privacy is important to us. This policy outlines how Imagineerednest collects, uses, and protects your personal information.
+            Last updated: March 30, 2026
+          </p>
+          <p className="text-lg text-foreground/60 max-w-2xl mx-auto mt-4">
+            Welcome to Imagineerednest. We are an IT services company committed to protecting your privacy and handling your personal information responsibly.
           </p>
           <div className="mt-8 h-1 w-24 bg-primary mx-auto rounded-full" />
         </motion.div>
@@ -66,9 +74,9 @@ export default function PrivacyPolicy() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group p-8 rounded-3xl bg-muted/5 border border-border hover:border-primary/30 transition-all duration-300"
+                className="group p-8  rounded-3xl bg-muted/5 border border-border hover:border-primary/30 transition-all duration-300"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex md:flex-row flex-col items-start gap-6">
                   <div className="w-12 h-12 shrink-0 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-all duration-500">
                     <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-500" />
                   </div>
@@ -93,7 +101,7 @@ export default function PrivacyPolicy() {
           viewport={{ once: true }}
           className="mt-16 pt-8 border-t border-border text-center text-foreground/50 text-sm"
         >
-          Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          This Privacy Policy is effective as of March 30, 2026 and may be updated from time to time. Any changes will be posted here.
         </motion.div>
       </div>
     </main>

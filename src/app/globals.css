@@ -53,28 +53,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-rgb: 59, 130, 246;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-  }
+
 }
 
 @layer base {
@@ -234,10 +213,27 @@ button, a, input, select, textarea, [class*="hover:"], .transition-all {
 
 
 .main-heading{
-  @apply text-[36px] sm:text-[42px] md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-foreground ;
+  @apply text-[36px] sm:text-[42px] md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-black ;
 }
 
 .header-description{
-  @apply text-sm text-justify  md:text-lg my-8 text-foreground/70 max-w-xl leading-relaxed;
+  @apply text-sm text-justify  md:text-lg my-8 text-black/70 max-w-xl leading-relaxed;
 }
 
+
+.marquee-track {
+  display: flex;
+  animation: marquee var(--marquee-duration) linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--marquee-end));
+  }
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}

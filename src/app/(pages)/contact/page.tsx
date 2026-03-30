@@ -63,19 +63,19 @@ export default function ContactPage() {
       icon: MapPin,
       label: 'Location',
       value: 'Coming Soon to Your City',
-      color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+      color: 'bg-blue-500/10 text-blue-600',
     },
     {
       icon: Phone,
       label: 'Phone',
       value: '+92 348 0550152',
-      color: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+      color: 'bg-emerald-500/10 text-emerald-600',
     },
     {
       icon: Mail,
       label: 'Email',
       value: 'hello@imagineerednest.com',
-      color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
+      color: 'bg-purple-500/10 text-purple-600',
     },
   ];
 
@@ -113,7 +113,7 @@ export default function ContactPage() {
               </div>
 
               {submitted ? (
-                <div className="text-center p-12 bg-card rounded-2xl border border-emerald-200 dark:border-emerald-800/40 shadow-lg">
+                <div className="text-center p-12 bg-card rounded-2xl border border-emerald-200 shadow-lg">
                   <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/30">
                     <CheckCircle className="w-8 h-8 text-white" />
                   </div>

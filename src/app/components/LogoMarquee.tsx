@@ -31,17 +31,16 @@ const LogoMarquee = () => {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-slate-50 dark:bg-slate-950 pt-10 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-blue-500 to-transparent opacity-50 dark:opacity-100" />
+    <section className="relative w-full overflow-hidden bg-slate-50 pt-10 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <div className="absolute top-0 left-0 right-0  h-1 bg-linear-to-r from-transparent via-blue-500 to-transparent opacity-50" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center -mb-3">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3 transition-colors duration-300">
-            Trusted by Industry Leaders
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 transition-colors duration-300">
+            Trusted by the Best
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 transition-colors duration-300">
+          <p className="text-sm sm:text-base text-slate-600 transition-colors duration-300">
             Partnering with the world's most innovative companies
           </p>
         </div>
@@ -49,13 +48,13 @@ const LogoMarquee = () => {
         {/* Marquee Container */}
         <div
           ref={marqueeRef}
-          className="relative overflow-hidden group/marquee"
+          className="relative overflow-hidden group/marquee py-8"
         >
           {/* Left fade overlay */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-linear-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none transition-colors duration-300" />
-
-          {/* Right fade overlay */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-linear-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-linear-to-r from-slate-50 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+          
+          {/* Right Gradient Mask */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-linear-to-l from-slate-50 to-transparent z-10 pointer-events-none transition-colors duration-300" />
 
           {/* Track */}
           <div
@@ -65,13 +64,13 @@ const LogoMarquee = () => {
             {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map((src, idx) => (
               <div
                 key={idx}
-                className="shrink-0 relative w-32 sm:w-40 h-16 sm:h-20 flex items-center justify-center  dark:opacity-70 transition-all duration-300 ease-out cursor-pointer"
+                className="shrink-0 relative w-32 sm:w-40 h-16 sm:h-20 flex items-center justify-center transition-all duration-300 ease-out cursor-pointer"
               >
                 <Image
                   src={src}
                   alt="Client logo"
                   fill
-                  className="object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                  className="object-contain  drop-shadow-[0_0_15px_rgba(0,0,0,0.05)]"
                 />
               </div>
             ))}
@@ -80,14 +79,8 @@ const LogoMarquee = () => {
       </div>
 
       {/* Decorative bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-blue-500 to-transparent opacity-50 dark:opacity-100" />
-
-      {/* Hover indicator */}
-      <div className="text-center mt-6 opacity-0 group-hover/marquee:opacity-100 transition-opacity duration-300">
-        <p className="text-xs text-slate-500 dark:text-slate-500 font-medium">
-          ↕ Pause on hover
-        </p>
-      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-blue-500 to-transparent opacity-50" />
+      
     </section>
   );
 };

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import Image from 'next/image';
-import { useTheme } from '@/context/ThemeContext';
 
 const owners = [
   {
@@ -25,23 +24,22 @@ const owners = [
 ];
 
 const Owners = () => {
-  const { theme } = useTheme();
   const [selectedOwner, setSelectedOwner] = useState<typeof owners[0] | null>(null);
 
   return (
     <section className="relative py-20 px-5 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-10 right-1/4 w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 animate-float-blob" />
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-blue-50 dark:bg-blue-900/10 rounded-full blur-3xl opacity-30 animate-float-blob" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-10 right-1/4 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40 animate-float-blob" />
+        <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30 animate-float-blob" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-smooth-slide-up">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-blue-600 via-blue-600 to-blue-700 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-blue-600 via-blue-600 to-blue-700 bg-clip-text text-transparent">
             Owners & Founders
           </h2>
           <div className="w-16 h-1 bg-linear-to-r from-blue-500 to-blue-600 mx-auto rounded-full" />
-          <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg">
+          <p className="text-gray-600 mt-4 text-lg">
             Meet the visionaries behind our success
           </p>
         </div>
@@ -49,7 +47,7 @@ const Owners = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {owners.map((owner, idx) => (
             <div key={idx} className="group relative" data-aos="fade-up" data-aos-delay={idx * 100}>
-              <div className="absolute inset-0 bg-blue-500/5 dark:bg-blue-400/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              <div className="absolute inset-0 bg-blue-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               <div className="relative bg-card border border-border rounded-3xl p-8 sm:p-10 text-center shadow-lg group-hover:shadow-2xl transition-all duration-500">
                 <div className="relative inline-block mb-8">
                   <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-500 scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
@@ -69,7 +67,7 @@ const Owners = () => {
                 <div className="inline-block mb-4 px-4 py-1.5 bg-linear-to-r from-blue-600 to-blue-700 text-white rounded-full">
                   <p className="text-xs sm:text-sm font-bold tracking-wider uppercase">{owner.role}</p>
                 </div>
-                <p className={` leading-relaxed mb-8 text-sm sm:text-base ${theme === 'dark' ? 'text-white' : 'text-gray-600'}`}>{owner.desc}</p>
+                <p className="leading-relaxed mb-8 text-sm sm:text-base">{owner.desc}</p>
                 <button
                   onClick={() => setSelectedOwner(owner)}
                   className="inline-flex items-center justify-center w-12 h-12 bg-linear-to-br from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-110 active:scale-95 mx-auto group/btn"

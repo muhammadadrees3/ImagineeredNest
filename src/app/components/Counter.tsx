@@ -70,7 +70,7 @@ function Counter() {
   }, [hasStarted]);
 
   return (
-    <section ref={sectionRef} className="py-16 px-5 bg-linear-to-r from-blue-600 to-blue-700 dark:from-blue-900 dark:to-blue-950 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 px-5 bg-linear-to-r from-blue-600 to-blue-700 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl" />
