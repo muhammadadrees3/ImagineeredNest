@@ -76,7 +76,7 @@ const Navbar = () => {
       <Link href="/" className="flex items-center gap-2 group">
         <div className={`relative rounded-xl transition-all duration-300 flex ${isScrolled ? 'h-10 w-10' : 'h-12 w-12 md:h-14 md:w-14'}`}>
           <Image
-            src="/images/whitelogo.png"
+            src="./images/whitelogo.png"
             alt="ImagineeredNest"
             width={700}
             height={700}
